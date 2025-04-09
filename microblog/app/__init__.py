@@ -1,11 +1,12 @@
 import os
 import logging
-from logging.handlers import SMTPHandler, RotatingFileHandler
+from logging.handlers import RotatingFileHandler
 
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
+from flask_mail import Mail
 
 from config import Config
 from app.smtp import SSLSMTPHandler
@@ -16,6 +17,7 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 login = LoginManager(app)
 login.login_view = 'login'
+mail = Mail(app)
 
 
 if not app.debug:
@@ -25,7 +27,7 @@ if not app.debug:
     secure = None
     if app.config['MAIL_USE_TLS']:
         secure = ()
-    mail_handler = SSLSMTPHandler(
+    mail_handler = SSLSMTPHandler( #TODO Письма приходят пустые. Нужно проверить настройки.
         mailhost=(app.config['MAIL_SERVER'], app.config['MAIL_PORT']),
         fromaddr=app.config['MAIL_USERNAME'],
         toaddrs=app.config['ADMINS'],
@@ -44,4 +46,4 @@ if not app.debug:
     app.logger.setLevel(logging.INFO)
     app.logger.info('Microblog startup')
 
-from app import routes, models, errors
+from app import routes as routes, models as models, errors as errors
