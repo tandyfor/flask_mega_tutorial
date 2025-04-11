@@ -16,3 +16,4 @@ class Config:
     MAIL_DEFAULT_SENDER = os.environ.get('MAIL_DEFAULT_SENDER')
     ADMINS = os.environ.get('ADMINS')
     POST_PER_PAGE = 3
+    LANGUAGES = ['en', 'ru']
