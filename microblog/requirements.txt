@@ -17,6 +17,7 @@ flask-moment==1.0.6
 flask-babel==4.0.0
 langdetect==1.0.9
 requests==2.32.3
+langdetect==1.0.9
 
 python-dotenv==1.1.0
 ruff==0.11.3

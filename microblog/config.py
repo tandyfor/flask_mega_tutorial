@@ -17,3 +17,6 @@ class Config:
     ADMINS = os.environ.get('ADMINS')
     POST_PER_PAGE = 3
     LANGUAGES = ['en', 'ru']
+    YANDEX_CLOUD_TRANSLATOR_API_KEY = os.environ.get('YANDEX_CLOUD_TRANSLATOR_API_KEY')
+    YANDEX_CLOUD_TRANSLATOR_CATALOG_ID = os.environ.get('YANDEX_CLOUD_TRANSLATOR_CATALOG_ID')
+    
