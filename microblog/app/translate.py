@@ -1,20 +1,19 @@
 import requests
+from flask import current_app
 from flask_babel import _
-
-from app import app
 
 
 def translate(text, source_language, dest_language):
-    if not app.config['YANDEX_CLOUD_TRANSLATOR_API_KEY'] or not app.config['YANDEX_CLOUD_TRANSLATOR_CATALOG_ID']:
+    if not current_app.config['YANDEX_CLOUD_TRANSLATOR_API_KEY'] or not current_app.config['YANDEX_CLOUD_TRANSLATOR_CATALOG_ID']:
         return _('Error: the translation service is not configured.')
     headers = {
         "Content-Type": "application/json",
-        "Authorization": "Api-Key {0}".format(app.config['YANDEX_CLOUD_TRANSLATOR_API_KEY']),
+        "Authorization": "Api-Key {0}".format(current_app.config['YANDEX_CLOUD_TRANSLATOR_API_KEY']),
         }
     body = {
         "targetLanguageCode": dest_language,
         "texts": text,
-        "folderId": app.config['YANDEX_CLOUD_TRANSLATOR_CATALOG_ID'],
+        "folderId": current_app.config['YANDEX_CLOUD_TRANSLATOR_CATALOG_ID'],
         "sourceLanguageCode": source_language
         }
     response = requests.post(

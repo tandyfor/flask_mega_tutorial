@@ -1,18 +1,28 @@
+#!/usr/bin/env python
+
+
 import os
 import unittest
 from datetime import datetime, timezone, timedelta
 
-os.environ['DATABASE_URL'] = 'postgresql+psycopg://postgres:1234@localhost/microblog_test_db'
-os.environ['MAIL_PORT'] = '465' # BUG При тестировании порт почтового сервера не подтягивается из окружения. 
+# os.environ['DATABASE_URL'] = 'postgresql+psycopg://postgres:1234@localhost/microblog_test_db'
+# os.environ['MAIL_PORT'] = '465' # BUG При тестировании порт почтового сервера не подтягивается из окружения. 
                                 # Хотя остальные переменные извлекаются корректно.
 
-from app import app, db
+from app import create_app, db
 from app.models import User, Post
+from config import Config
 
+
+class TestConfig(Config):
+    TESTING = True
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg://postgres:1234@localhost/microblog_test_db'
+    MAIL_PORT = 465
 
 class UserModelCase(unittest.TestCase):
     def setUp(self):
-        self.app_context = app.app_context()
+        self.app = create_app(TestConfig)
+        self.app_context = self.app.app_context()
         self.app_context.push()
         db.create_all()
 
