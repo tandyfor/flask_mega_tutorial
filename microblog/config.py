@@ -9,7 +9,6 @@ load_dotenv(os.path.join(basedir, '.env'))
 class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'you-will-never-guess'
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') 
-    # or f'sqlite:///{os.path.join(basedir, 'app.db')}'
     MAIL_SERVER = os.environ.get('MAIL_SERVER')
     MAIL_PORT = int(os.environ.get('MAIL_PORT')) or 25
     MAIL_USE_TLS = os.environ.get('MAIL_USE_TLS') is not None
@@ -22,4 +21,4 @@ class Config:
     LANGUAGES = ['en', 'ru']
     YANDEX_CLOUD_TRANSLATOR_API_KEY = os.environ.get('YANDEX_CLOUD_TRANSLATOR_API_KEY')
     YANDEX_CLOUD_TRANSLATOR_CATALOG_ID = os.environ.get('YANDEX_CLOUD_TRANSLATOR_CATALOG_ID')
-    
+    ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL')
