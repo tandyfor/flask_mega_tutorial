@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-04-28 13:45+0300\n"
+"POT-Creation-Date: 2025-04-28 18:38+0300\n"
 "PO-Revision-Date: 2025-04-10 08:34+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: ru\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.17.0\n"
 
-#: app/__init__.py:26
+#: app/__init__.py:28
 msgid "Please log in to access this page."
 msgstr "Пожалуйста, авторизуйтесь для доступа к этой странице."
 
@@ -152,13 +152,21 @@ msgstr "Вы не подписаны на %(username)s"
 msgid "Explore"
 msgstr "Поиск"
 
-#: app/main/routes.py:178
+#: app/main/routes.py:179
 #, fuzzy
 msgid "Your message has been sent."
 msgstr "Выш пароль был сброшен."
 
-#: app/main/routes.py:180
+#: app/main/routes.py:181
 msgid "Send Message"
+msgstr ""
+
+#: app/main/routes.py:220
+msgid "An export task is currently in progress"
+msgstr ""
+
+#: app/main/routes.py:222
+msgid "Exporting posts..."
 msgstr ""
 
 #: app/templates/_post.html:15
@@ -190,7 +198,7 @@ msgstr "Профиль"
 msgid "Logout"
 msgstr "Выйти"
 
-#: app/templates/base.html:55 app/templates/messages.html:4
+#: app/templates/base.html:53 app/templates/messages.html:4
 msgid "Messages"
 msgstr ""
 
@@ -200,12 +208,10 @@ msgid "Hi, %(username)s!"
 msgstr "Привет, %(username)s!"
 
 #: app/templates/index.html:16 app/templates/search.html:12
-#: app/templates/user.html:48
 msgid "Newer posts"
 msgstr "Новые посты"
 
 #: app/templates/index.html:21 app/templates/search.html:17
-#: app/templates/user.html:53
 msgid "Older posts"
 msgstr "Старые посты"
 
@@ -228,39 +234,27 @@ msgstr ""
 msgid "Send Message to %(recipient)s"
 msgstr ""
 
-#: app/templates/user.html:8
-msgid "User"
-msgstr "Пользователь"
-
-#: app/templates/user.html:11 app/templates/user_popup.html:7
+#: app/templates/user_popup.html:7
 msgid "Last seen on"
 msgstr "Последний раз был"
 
-#: app/templates/user.html:13 app/templates/user_popup.html:9
+#: app/templates/user_popup.html:9
 #, python-format
 msgid "%(count)d followers"
 msgstr "%(count)d подписчиков"
 
-#: app/templates/user.html:13 app/templates/user_popup.html:9
+#: app/templates/user_popup.html:9
 #, fuzzy, python-format
 msgid "%(count)d following"
 msgstr "%(count)d подписчиков"
 
-#: app/templates/user.html:15
-msgid "Edit your profile"
-msgstr "Редактировать профиль"
-
-#: app/templates/user.html:20 app/templates/user_popup.html:15
+#: app/templates/user_popup.html:15
 msgid "Follow"
 msgstr "Подписаться"
 
-#: app/templates/user.html:27 app/templates/user_popup.html:22
+#: app/templates/user_popup.html:22
 msgid "Unfollow"
 msgstr "Отписаться"
-
-#: app/templates/user.html:34
-msgid "Send private message"
-msgstr ""
 
 #: app/templates/auth/login.html:7
 msgid "New User?"
@@ -303,5 +297,14 @@ msgid "The administrator has been notified. Sorry for the inconvenience!"
 msgstr "Администратор уведомлен. Извините за неудобства!"
 
 #~ msgid "%(count)d подписок"
+#~ msgstr ""
+
+#~ msgid "User"
+#~ msgstr "Пользователь"
+
+#~ msgid "Edit your profile"
+#~ msgstr "Редактировать профиль"
+
+#~ msgid "Send private message"
 #~ msgstr ""
 

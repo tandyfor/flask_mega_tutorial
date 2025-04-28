@@ -22,3 +22,5 @@ class Config:
     YANDEX_CLOUD_TRANSLATOR_API_KEY = os.environ.get('YANDEX_CLOUD_TRANSLATOR_API_KEY')
     YANDEX_CLOUD_TRANSLATOR_CATALOG_ID = os.environ.get('YANDEX_CLOUD_TRANSLATOR_CATALOG_ID')
     ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL')
+    REDIS_URL = os.environ.get('REDIS_URL') or 'redis://'
+    

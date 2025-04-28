@@ -1,7 +1,7 @@
 import sqlalchemy as sa
 import sqlalchemy.orm as so
 from app import create_app, db, cli
-from app.models import User, Post, Message, Notification
+from app.models import User, Post, Message, Notification, Task
 
 app = create_app()
 
@@ -14,5 +14,6 @@ def make_shell_context():
         'User' : User,
         'Post' : Post,
         'Message': Message, 
-        'Notification': Notification
+        'Notification': Notification,
+        'Task' : Task
     }
